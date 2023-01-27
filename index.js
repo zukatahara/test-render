@@ -4,6 +4,7 @@ const app = express();
 const fs = require("fs");
 const path = require("path");
 var downloadFolder = path.join(process.env.USERPROFILE, "/Downloads/");
+console.log("downloadFolder", downloadFolder);
 
 app.get("/", (req, res) => {
   res.send(`hello`);
