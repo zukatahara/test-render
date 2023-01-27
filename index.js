@@ -1,7 +1,10 @@
 const express = require("express");
 const ytdl = require("ytdl-core");
 const app = express();
-const fs= require("fs")
+const fs = require("fs");
+const path = require("path");
+var downloadFolder = path.join(process.env.USERPROFILE, "/Downloads/");
+
 app.get("/", (req, res) => {
   res.send(`hello`);
 });
@@ -10,7 +13,7 @@ app.get("/abc", (req, res) => {
     ? req.query.url
     : "https://www.youtube.com/embed/wz-ZkPEGyeo?start=10&end=15";
   ytdl(url, { filter: "audioonly" }).pipe(
-    fs.createWriteStream(`${Date.now()}_video.mp3`)
+    fs.createWriteStream(`${downloadFolder}${Date.now()}_video.mp3`)
   );
   res.send("abc page");
 });
