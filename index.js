@@ -1,11 +1,11 @@
 const express = require("express");
-const ytdl = require("ytdl-core");
+// const ytdl = require("ytdl-core");
 const app = express();
 const fs = require("fs");
-const path = require("path");
-var downloadFolder = path.join(process.env.USERPROFILE, "/Downloads/");
-console.log("downloadFolder", process.env.USERPROFILE);
-console.log(`aaa`);
+// const path = require("path");
+// var downloadFolder = path.join(process.env.USERPROFILE, "/Downloads/");
+// console.log("downloadFolder", process.env.USERPROFILE);
+// console.log(`aaa`);
 app.get("/", (req, res) => {
   res.send(`hello`);
 });
