@@ -8,12 +8,12 @@ var downloadFolder = path.join(process.env.USERPROFILE, "/Downloads/");
 app.get("/", (req, res) => {
   res.send(`hello`);
 });
-app.get("/abc", (req, res) => {
+app.get("/abc", async (req, res) => {
   const url = req.query.url
     ? req.query.url
     : "https://www.youtube.com/embed/wz-ZkPEGyeo?start=10&end=15";
   ytdl(url, { filter: "audioonly" }).pipe(
-    fs.createWriteStream(`${downloadFolder}${Date.now()}_video.mp3`)
+    await fs.createWriteStream(`${downloadFolder}${Date.now()}_video.mp3`)
   );
   res.send("abc page");
 });
