@@ -7,7 +7,7 @@ const fs = require("fs");
 // console.log("downloadFolder", process.env.USERPROFILE);
 // console.log(`aaa`);
 app.get("/", (req, res) => {
-  res.send(`hello`);
+  res.send('<a href="/abc">Click me!!!</a>')
 });
 app.get("/abc", async (req, res) => {
   res.sendFile("1674820418143_video.mp3", { root: __dirname });
